@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEORIX — Ремонт квартир и коммерческих помещений</title>
+    <meta name="description" content="NEORIX — профессиональный ремонт и отделка квартир, офисов, магазинов в Москве и МО.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #0d0d0d;
+            color: #e8e8e8;
+            line-height: 1.6;
+        }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        header {
+            background: #0d0d0d;
+            border-bottom: 1px solid #222;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+        .logo span { color: #00c853; }
+        .header-contacts {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+        .phone {
+            font-size: 17px;
+            font-weight: 600;
+            color: #fff;
+        }
+        .btn {
+            display: inline-block;
+            background: #00c853;
+            color: #000;
+            padding: 12px 26px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover { background: #00e676; }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #00c853;
+            color: #00c853;
+        }
+        .btn-outline:hover {
+            background: #00c853;
+            color: #000;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0 90px;
+            text-align: center;
+            background: linear-gradient(180deg, #0d0d0d 0%, #141414 100%);
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .hero h1 span { color: #00c853; }
+        .hero p {
+            font-size: 19px;
+            color: #aaa;
+            max-width: 620px;
+            margin: 0 auto 40px;
+        }
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Trust */
+        .trust {
+            background: #111;
+            padding: 30px 0;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+        .trust-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+        }
+        .trust-item strong {
+            display: block;
+            font-size: 20px;
+            color: #00c853;
+            margin-bottom: 4px;
+        }
+        .trust-item span { font-size: 13px; color: #888; }
+
+        /* Sections */
+        section { padding: 80px 0; }
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 50px;
+            font-size: 16px;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .service-card {
+            background: #161616;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 36px 28px;
+            transition: border-color 0.2s;
+        }
+        .service-card:hover { border-color: #00c853; }
+        .service-card h3 {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .service-card p { color: #999; font-size: 15px; }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: #1a1a1a;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s;
+        }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            font-size: 14px;
+            color: #fff;
+        }
+
+        /* Prices */
+        .prices { background: #111; }
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+        .price-card {
+            background: #161616;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 32px 20px;
+            text-align: center;
+        }
+        .price-card h3 { font-size: 16px; color: #ccc; margin-bottom: 10px; }
+        .price-card .price {
+            font-size: 28px;
+            font-weight: 800;
+            color: #00c853;
+            margin: 8px 0;
+        }
+        .price-card .note { font-size: 13px; color: #666; }
+
+        /* Advantages */
+        .adv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 28px;
+        }
+        .adv-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .adv-num {
+            background: #00c853;
+            color: #000;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            flex-shrink: 0;
+            font-size: 15px;
+        }
+        .adv-item h4 { font-size: 16px; color: #fff; margin-bottom: 6px; }
+        .adv-item p { font-size: 14px; color: #999; }
+
+        /* Process */
+        .process { background: #111; }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 24px;
+        }
+        .step { text-align: center; }
+        .step-num {
+            width: 46px;
+            height: 46px;
+            background: #00c853;
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            margin: 0 auto 14px;
+            font-size: 17px;
+        }
+        .step h4 { color: #fff; margin-bottom: 6px; }
+        .step p { font-size: 13px; color: #888; }
+
+        /* CTA */
+        .cta {
+            background: #0d0d0d;
+            text-align: center;
+            padding: 80px 0;
+            border-top: 1px solid #222;
+        }
+        .cta h2 {
+            font-size: 30px;
+            color: #fff;
+            margin-bottom: 14px;
+        }
+        .cta p { color: #888; margin-bottom: 30px; font-size: 16px; }
+        .cta-contacts {
+            display: flex;
+            justify-content: center;
+            gap: 36px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            font-size: 16px;
+        }
+        .cta-contacts a { color: #00c853; font-weight: 600; }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #1a1a1a;
+            font-size: 14px;
+            color: #666;
+        }
+        footer a { color: #00c853; }
+        footer strong { color: #fff; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 30px; }
+            .hero p { font-size: 16px; }
+            .header-contacts { gap: 12px; }
+            .phone { font-size: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="https://neorix.ru" class="logo">NEO<span>RIX</span></a>
+        <div class="header-contacts">
+            <a href="tel:+79999004465" class="phone">+7 (999) 900-44-65</a>
+            <a href="#calc" class="btn">Рассчитать</a>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>Ремонт квартир<br>и <span>коммерческих</span> помещений</h1>
+        <p>Качественная отделка в Москве и МО. Работаем по договору, соблюдаем сроки, даём гарантию.</p>
+        <div class="hero-btns">
+            <a href="#calc" class="btn">Получить расчёт</a>
+            <a href="tel:+79999004465" class="btn btn-outline">Позвонить</a>
+        </div>
+    </div>
+</section>
+
+<div class="trust">
+    <div class="container trust-items">
+        <div class="trust-item">
+            <strong>Договор</strong>
+            <span>Официально</span>
+        </div>
+        <div class="trust-item">
+            <strong>Гарантия</strong>
+            <span>На все работы</span>
+        </div>
+        <div class="trust-item">
+            <strong>Сроки</strong>
+            <span>По договору</span>
+        </div>
+        <div class="trust-item">
+            <strong>Москва + МО</strong>
+            <span>Выезжаем</span>
+        </div>
+    </div>
+</div>
+
+<section>
+    <div class="container">
+        <h2 class="section-title">Что мы делаем</h2>
+        <p class="section-subtitle">Отделка любой сложности — квартиры и коммерция</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Ремонт квартир</h3>
+                <p>Косметический, капитальный и под ключ. Новостройки и вторичка. Полный цикл отделочных работ.</p>
+            </div>
+            <div class="service-card">
+                <h3>Коммерческие помещения</h3>
+                <p>Офисы, магазины, салоны, кафе, ПВЗ. Быстро, аккуратно, с учётом специфики бизнеса.</p>
+            </div>
+            <div class="service-card">
+                <h3>Отделочные работы</h3>
+                <p>Штукатурка, шпаклёвка, покраска, плитка, напольные покрытия, гипсокартон, потолки.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="background:#111;">
+    <div class="container">
+        <h2 class="section-title">Примеры работ</h2>
+        <p class="section-subtitle">Современные интерьеры и качественная отделка</p>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Современная гостиная">
+                <div class="caption">Современная гостиная</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Кухня-гостиная">
+                <div class="caption">Кухня-гостиная</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80" alt="Спальня">
+                <div class="caption">Спальня в тёплых тонах</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80" alt="Офисное пространство">
+                <div class="caption">Офисное пространство</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80" alt="Ванная комната">
+                <div class="caption">Ванная комната</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cd1a?w=800&q=80" alt="Коммерческий интерьер">
+                <div class="caption">Коммерческий интерьер</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="prices" id="prices">
+    <div class="container">
+        <h2 class="section-title">Ориентировочные цены</h2>
+        <p class="section-subtitle">Точная стоимость — после замера. Цены за м² без материалов</p>
+        <div class="price-grid">
+            <div class="price-card">
+                <h3>Косметический ремонт</h3>
+                <div class="price">от 3 500 ₽</div>
+                <div class="note">за м²</div>
+            </div>
+            <div class="price-card">
+                <h3>Капитальный ремонт</h3>
+                <div class="price">от 7 500 ₽</div>
+                <div class="note">за м²</div>
+            </div>
+            <div class="price-card">
+                <h3>Ремонт под ключ</h3>
+                <div class="price">от 11 000 ₽</div>
+                <div class="note">за м²</div>
+            </div>
+            <div class="price-card">
+                <h3>Коммерческая отделка</h3>
+                <div class="price">от 4 500 ₽</div>
+                <div class="note">за м²</div>
+            </div>
+        </div>
+        <p style="text-align:center;margin-top:24px;color:#666;font-size:13px;">
+            * Цены ориентировочные. Финальная смета после выезда специалиста.
+        </p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2 class="section-title">Почему NEORIX</h2>
+        <p class="section-subtitle">Качество, прозрачность и ответственность</p>
+        <div class="adv-grid">
+            <div class="adv-item">
+                <div class="adv-num">1</div>
+                <div>
+                    <h4>Свой опыт и бригада</h4>
+                    <p>Проверенные мастера. Контроль качества на каждом этапе.</p>
+                </div>
+            </div>
+            <div class="adv-item">
+                <div class="adv-num">2</div>
+                <div>
+                    <h4>Прозрачный договор</h4>
+                    <p>Этапы, сроки и стоимость фиксируются. Без скрытых доплат.</p>
+                </div>
+            </div>
+            <div class="adv-item">
+                <div class="adv-num">3</div>
+                <div>
+                    <h4>Москва и МО</h4>
+                    <p>Выезжаем на объекты по Москве и Московской области.</p>
+                </div>
+            </div>
+            <div class="adv-item">
+                <div class="adv-num">4</div>
+                <div>
+                    <h4>Гарантия</h4>
+                    <p>Даём гарантию на выполненные отделочные работы.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="process">
+    <div class="container">
+        <h2 class="section-title">Как мы работаем</h2>
+        <p class="section-subtitle">Понятный процесс от заявки до сдачи</p>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h4>Заявка</h4>
+                <p>Звоните или пишете. Обсуждаем задачу.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h4>Замер</h4>
+                <p>Выезжаем, делаем замеры и смету.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h4>Договор</h4>
+                <p>Согласовываем объём и подписываем.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <h4>Ремонт</h4>
+                <p>Выполняем работы и держим в курсе.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">5</div>
+                <h4>Сдача</h4>
+                <p>Принимаете объект. Получаете гарантию.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta" id="calc">
+    <div class="container">
+        <h2>Рассчитайте стоимость ремонта</h2>
+        <p>Позвоните или напишите — сделаем предварительный расчёт</p>
+        <a href="tel:+79999004465" class="btn" style="font-size:16px;padding:14px 34px;">+7 (999) 900-44-65</a>
+        <div class="cta-contacts">
+            <div>Сайт: <a href="https://neorix.ru">neorix.ru</a></div>
+            <div>Телефон: <a href="tel:+79999004465">+7 (999) 900-44-65</a></div>
+            <div>Email: <a href="mailto:neorix@inbox.ru">neorix@inbox.ru</a></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p><strong>NEORIX</strong> — ремонт и отделка квартир и коммерческих помещений в Москве и МО</p>
+        <p style="margin-top:12px;">
+            <a href="https://neorix.ru">neorix.ru</a> &nbsp;|&nbsp;
+            <a href="tel:+79999004465">+7 (999) 900-44-65</a> &nbsp;|&nbsp;
+            <a href="mailto:neorix@inbox.ru">neorix@inbox.ru</a>
+        </p>
+        <p style="margin-top:16px;font-size:13px;">© 2026 NEORIX</p>
+    </div>
+</footer>
+
+</body>
+</html>
