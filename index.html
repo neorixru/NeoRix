@@ -863,7 +863,8 @@
             
             <div class="form-box">
                 <h3>Оставить заявку</h3>
-                <form onsubmit="alert('Спасибо! Мы свяжемся с вами в ближайшее время.'); return false;">
+                <form id="lead-form" action="https://formspree.io/f/myeyozrj" method="POST">
+                    <input type="hidden" name="_subject" value="Новая заявка с сайта neorix.su">
                     <div class="form-group">
                         <label>Имя</label>
                         <input type="text" name="name" required>
@@ -899,5 +900,19 @@
     </div>
 </footer>
 
+
+<script>
+document.getElementById('lead-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var form = e.target, btn = form.querySelector('button[type=submit]');
+    btn.disabled = true; btn.textContent = 'Отправляем...';
+    try {
+        var r = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+        if (r.ok) { form.reset(); alert('Спасибо! Заявка отправлена, мы свяжемся с вами в ближайшее время.'); }
+        else { alert('Не удалось отправить заявку. Позвоните нам: +7 999 900-44-65'); }
+    } catch (err) { alert('Не удалось отправить заявку. Позвоните нам: +7 999 900-44-65'); }
+    btn.disabled = false; btn.textContent = 'Отправить';
+});
+</script>
 </body>
 </html>
