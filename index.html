@@ -672,6 +672,18 @@
             footer p { font-size: 12px; }
         }
     </style>
+    <meta name="yandex-verification" content="3cbd8263d984e958" />
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(113595243, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/113595243" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 <body>
 
@@ -972,7 +984,7 @@ document.getElementById('lead-form').addEventListener('submit', async function (
     btn.disabled = true; btn.textContent = 'Отправляем...';
     try {
         var r = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
-        if (r.ok) { form.reset(); alert('Спасибо! Заявка отправлена, мы свяжемся с вами в ближайшее время.'); }
+        if (r.ok) { form.reset(); if (window.ym) ym(113595243,'reachGoal','lead'); alert('Спасибо! Заявка отправлена, мы свяжемся с вами в ближайшее время.'); }
         else { alert('Не удалось отправить заявку. Позвоните нам: +7 999 900-44-65'); }
     } catch (err) { alert('Не удалось отправить заявку. Позвоните нам: +7 999 900-44-65'); }
     btn.disabled = false; btn.textContent = 'Отправить';
