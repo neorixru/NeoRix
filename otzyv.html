@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Оставить отзыв — NEORIX</title>
+<link rel="icon" href="/favicon-32.png?v=2" sizes="32x32" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,sans-serif;background:#0a0a0a;color:#e5e5e5;line-height:1.6;font-weight:300;min-height:100vh}
+a{color:inherit}
+.wrap{max-width:640px;margin:0 auto;padding:48px 32px 80px}
+.logo{display:inline-flex;align-items:center;margin-bottom:56px}
+.logo img{height:40px}
+.section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#10b981;display:block;margin-bottom:16px}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,6vw,48px);font-weight:400;color:#fff;text-transform:uppercase;letter-spacing:2px;line-height:1.15;margin-bottom:16px}
+.lead{color:#999;margin-bottom:48px}
+.box{background:#111;border:1px solid #222;border-top:2px solid #10b981;padding:40px}
+.form-group{margin-bottom:24px}
+.form-group label,.lbl{display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#666;margin-bottom:8px}
+.form-group input,.form-group textarea{width:100%;padding:14px 0;background:transparent;border:none;border-bottom:1px solid #333;color:#fff;font-size:15px;font-family:inherit;outline:none}
+.form-group input:focus,.form-group textarea:focus{border-bottom-color:#10b981}
+textarea{min-height:140px;resize:vertical}
+.stars{display:flex;flex-direction:row-reverse;justify-content:flex-end;gap:6px}
+.stars input{position:absolute;opacity:0;pointer-events:none}
+.stars label{font-size:34px;color:#333;cursor:pointer;line-height:1;transition:color .15s}
+.stars label:hover,.stars label:hover~label,.stars input:checked~label{color:#10b981}
+.form-consent{font-size:13px;color:#888;margin-top:8px}
+.form-consent label{display:flex;gap:10px;align-items:flex-start}
+.form-consent input{width:18px;height:18px;flex-shrink:0;accent-color:#10b981;margin-top:2px}
+.form-consent a{text-decoration:underline}
+.btn{display:block;width:100%;margin-top:24px;padding:16px 40px;border:1px solid #10b981;background:#10b981;color:#0a0a0a;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500;cursor:pointer;transition:all .3s;font-family:inherit}
+.btn:hover{background:transparent;color:#10b981}
+.btn:disabled{opacity:.6}
+.err{color:#f87171;font-size:13px;margin-top:12px;display:none}
+.thanks{display:none;text-align:center;padding:24px 0}
+.thanks .check{width:72px;height:72px;border:2px solid #10b981;border-radius:50%;color:#10b981;font-size:36px;display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
+.thanks h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:34px;color:#fff;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.thanks p{color:#999}
+.thanks a{display:inline-block;margin-top:28px;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#10b981}
+footer{text-align:center;color:#555;font-size:12px;margin-top:48px}
+.tg-note{margin-top:24px;padding:18px;border:1px solid #222;background:#0d0d0d;text-align:center}.tg-note p{color:#999;font-size:14px;margin-bottom:12px}.tg-note a.tg-btn{display:inline-block;margin-top:0;padding:12px 24px;border:1px solid #10b981;color:#10b981;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none}.tg-note a.tg-btn:hover{background:#10b981;color:#0a0a0a}
+@media(max-width:480px){.wrap{padding:28px 18px 56px}.logo{margin-bottom:36px}.box{padding:24px 18px}.lead{margin-bottom:32px}.form-group input,.form-group textarea{font-size:16px}.btn{min-height:48px}.stars label{font-size:40px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="logo" href="/"><img src="images/logo-white.png" alt="NEORIX"></a>
+  <div id="intro">
+    <span class="section-label">Для клиентов NEORIX</span>
+    <h1>Оставьте отзыв</h1>
+    <p class="lead">Спасибо, что выбрали нас. Расскажите, как прошли работы на вашем объекте, — отзыв появится на сайте после проверки.</p>
+  </div>
+  <div class="box">
+    <form id="review-form" action="https://formspree.io/f/myeyozrj" method="POST">
+      <input type="hidden" name="type" value="review">
+      <input type="hidden" name="_subject" value="Новый отзыв с сайта neorix.su">
+      <div class="form-group"><label for="f-name">Ваше имя</label><input id="f-name" type="text" name="name" required></div>
+      <div class="form-group"><label for="f-obj">Объект / компания</label><input id="f-obj" type="text" name="object" placeholder="Например: склад, Подольск" required></div>
+      <div class="form-group"><span class="lbl">Оценка</span>
+        <div class="stars">
+          <input type="radio" id="s5" name="rating" value="5" required><label for="s5" title="5">★</label>
+          <input type="radio" id="s4" name="rating" value="4"><label for="s4" title="4">★</label>
+          <input type="radio" id="s3" name="rating" value="3"><label for="s3" title="3">★</label>
+          <input type="radio" id="s2" name="rating" value="2"><label for="s2" title="2">★</label>
+          <input type="radio" id="s1" name="rating" value="1"><label for="s1" title="1">★</label>
+        </div></div>
+      <div class="form-group"><label for="f-text">Отзыв</label><textarea id="f-text" name="text" required></textarea></div>
+      <div class="form-consent"><label><input type="checkbox" name="consent" value="да" required> <span>Соглашаюсь на обработку персональных данных и публикацию отзыва на сайте в соответствии с <a href="privacy.html" target="_blank">политикой</a></span></label></div>
+      <button type="submit" class="btn">Отправить отзыв</button>
+      <div class="tg-note"><p>Хотите добавить фото объекта? Пришлите его в Telegram</p><a class="tg-btn" href="https://t.me/neorix_su" target="_blank" rel="noopener">Отправить фото в Telegram →</a></div>
+      <p class="err" id="err">Не удалось отправить. Позвоните нам: +7 999 900-44-65</p>
+    </form>
+    <div class="thanks" id="thanks">
+      <div class="check">✓</div>
+      <h2>Спасибо!</h2>
+      <p>Ваш отзыв отправлен. Он появится на сайте после проверки.</p>
+      <div class="tg-note"><p>Хотите добавить фото объекта? Пришлите его в Telegram</p><a class="tg-btn" href="https://t.me/neorix_su" target="_blank" rel="noopener">Отправить фото в Telegram →</a></div>
+      <a href="/">На главную →</a>
+    </div>
+  </div>
+  <footer>© 2026 NEORIX · neorix.su</footer>
+</div>
+<script>
+function showThanks(){document.getElementById('review-form').style.display='none';document.getElementById('intro').style.display='none';document.getElementById('thanks').style.display='block';}
+document.getElementById('review-form').addEventListener('submit',async function(e){
+  e.preventDefault();var f=e.target,b=f.querySelector('button');b.disabled=true;b.textContent='Отправляем...';document.getElementById('err').style.display='none';
+  try{var r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}});
+    if(r.ok){f.reset();showThanks();}else throw 0;}
+  catch(x){document.getElementById('err').style.display='block';}
+  b.disabled=false;b.textContent='Отправить отзыв';
+});
+</script>
+</body>
+</html>
